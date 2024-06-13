@@ -11,6 +11,7 @@ public class Main {
         boolean Left = false;
         boolean checkIfDone = false;
         int puestosAmount = 0;
+        int combinations = 0;
         Random random = new Random();
         String nameChapulin = "";
 
@@ -64,9 +65,9 @@ public class Main {
         }
 
         int[][] tiempos = new int[chapulinAmount][puestosAmount];
-        for (int i = 0; i < puestosAmount; i++){
+        for (int i = 0; i < puestosAmount-1; i++){
 
-            for (int j = 0; j < chapulinAmount; j++) {
+            for (int j = 0; j < chapulinAmount-1; j++) {
 
                 tiempos[i][j] = 0;;
 
@@ -80,22 +81,13 @@ public class Main {
         finished = false;
 
 
-        while (finished = true){
+        while (finished == false){
+            checkIfDone = false;
+            if (combinations >= (chapulinAmount*puestosAmount)){finished = true; checkIfDone = true;}
 
-            System.out.println("Check");
+            System.out.println("Check1");
 
 
-            for (int i = 0; i < puestosAmount; i++){
-
-                for (int j = 0; j < chapulinAmount; j++) {
-
-                    if (tiempos[i][j] == 0) {
-                        Left = true;
-                    }
-                    if (Left == true){finished = true;} else {finished = false;}
-
-                }
-            }
 
 
 
@@ -106,6 +98,9 @@ public class Main {
 
                 for (int j = 0; j < chapulinAmount && checkIfDone == false; j++) {
 
+                    System.out.println("Check2");
+                    if (combinations >= (chapulinAmount*puestosAmount)){finished = false; checkIfDone = true;}
+
                     if (tiempos[j][randomChapulin] == 0) {
 
                         var currentChapulin = Chapulines[randomChapulin];
@@ -114,12 +109,15 @@ public class Main {
                         System.out.println(currentChapulin + " está en: " + currentPuesto);
                         tiempos[j][randomChapulin] = scanner.nextInt();
                         checkIfDone = true;
+                         combinations ++;
 
                     }
 
-
-
                 }
+
+
+
+
             }
 
 
@@ -129,6 +127,17 @@ public class Main {
 
 
         System.out.println("Check malvado");
+
+
+        for (int i = 0; i < chapulinAmount; i++) {
+            System.out.print(Chapulines[i] + ":");
+            for (int j = 0; j < puestosAmount; j++) {
+                System.out.print(tiempos[i][j]);
+                System.out.print(" ");
+            }
+            System.out.println();
+        }
+
 
 
 
