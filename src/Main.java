@@ -1,4 +1,26 @@
 
+//DISCLAIMER: ! ! ! ! ! !
+//The code works, but just with the same amount of chapulines and puestos
+//I dont know why it breaks, it just does
+//If i knew i would break i wouldve drastically change the code to a much simpler one, but it cant be helped
+//I cant even begin to describe the headache this test gave me
+//But ill do better next time, and thats a promise.
+
+
+
+/*=================================================================================
+Study Center....: Universidad Tecnica Nacional
+Campus..........: Pacifico (JRMP)
+College career..: Ingenieria en Tecnologias de Información
+Period..........: 2C-2024
+Course..........: ITI-221 - Programación I
+Document........: Examen 1
+Goals...........: Declare and use of arrays, matrix and cube
+Professor.......: Jorge Ruiz (york)
+Student.........: Brandon Conejo Quirós
+=================================================================================*/
+/*=================================================================================*/
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -147,9 +169,6 @@ public class Main {
 
             System.out.println();
         }
-
-
-
 
 
 
