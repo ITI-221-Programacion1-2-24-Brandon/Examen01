@@ -12,6 +12,7 @@ public class Main {
         boolean checkIfDone = false;
         int puestosAmount = 0;
         int combinations = 0;
+        int sumaTiempo = 0;
         Random random = new Random();
         String nameChapulin = "";
 
@@ -64,6 +65,8 @@ public class Main {
 
         }
 
+        //Creates and fills the tiempos matrix
+
         int[][] tiempos = new int[chapulinAmount][puestosAmount];
         for (int i = 0; i < puestosAmount-1; i++){
 
@@ -81,26 +84,29 @@ public class Main {
         finished = false;
 
 
+        //To summarize this mess: It checks if combinations is greater than the x and y of the matrix multiplied together
+
+
+
         while (finished == false){
             checkIfDone = false;
             if (combinations >= (chapulinAmount*puestosAmount)){finished = true; checkIfDone = true;}
-
-            System.out.println("Check1");
-
 
 
 
 
             while (checkIfDone == false) {
 
+                //Creates randomness
                 randomChapulin = random.nextInt(chapulinAmount);
 
 
                 for (int j = 0; j < chapulinAmount && checkIfDone == false; j++) {
 
-                    System.out.println("Check2");
+
                     if (combinations >= (chapulinAmount*puestosAmount)){finished = false; checkIfDone = true;}
 
+                    //This looks for any space in the matrix that doesnt have a 0 as its value, and lets the user fill it
                     if (tiempos[j][randomChapulin] == 0) {
 
                         var currentChapulin = Chapulines[randomChapulin];
@@ -126,17 +132,22 @@ public class Main {
 
 
 
-        System.out.println("Check malvado");
 
+        //Prints everything
 
-        for (int i = 0; i < chapulinAmount; i++) {
-            System.out.print(Chapulines[i] + ":");
-            for (int j = 0; j < puestosAmount; j++) {
+        for (int i = 0; i < puestosAmount; i++) {
+            System.out.print(Puestos[i] + " : ");
+            for (int j = 0; j < chapulinAmount; j++) {
+
+                System.out.print(Chapulines[j] + ":");
                 System.out.print(tiempos[i][j]);
                 System.out.print(" ");
+
             }
+
             System.out.println();
         }
+
 
 
 
